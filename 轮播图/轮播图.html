@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播图</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        position: relative;
+        margin: auto;
+        width: 800px;
+        height: 400px;
+      }
+      #uls {
+        width: 800px;
+        height: 400px;
+        overflow: hidden;
+      }
+      #img_ul {
+        list-style: none;
+        height: 400px;
+        left: 0;
+        top: 0;
+        width: 4800px;
+      }
+      #img_ul li {
+        float: left;
+        width: 800px;
+        height: 400px;
+      }
+      #img_ul li img {
+        width: 100%;
+        height: 100%;
+      }
+      #buttons {
+        position: absolute;
+        top: 50%;
+        font-size: 40px;
+      }
+      #buttons div {
+        height: 60px;
+        width: 60px;
+        float: left;
+        transform: translateY(-50%);
+        position: absolute;
+      }
+      #buttons div img {
+        height: 60px;
+        width: 60px;
+      }
+      #buttons div img:hover {
+        background-color: rgba(88, 87, 86, 0.2);
+        cursor: pointer;
+      }
+      #left img {
+        transform: rotate(180deg);
+      }
+      #left {
+        position: relative;
+        left: -60px;
+      }
+      #right {
+        position: relative;
+        left: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="uls">
+        <ul id="img_ul">
+          <li><img src="/img/1.jpg" /></li>
+          <li><img src="/img/2.jpg" /></li>
+          <li><img src="/img/3.jpg" /></li>
+          <li><img src="/img/4.jpg" /></li>
+          <li><img src="/img/5.jpg" /></li>
+          <li><img src="/img/1.jpg" /></li>
+        </ul>
+        <ul id="litCir_ul"></ul>
+      </div>
+      <div id="buttons">
+        <div id="left"><img src="/img/箭头.png" /></div>
+        <div id="right"><img src="/img/箭头.png" /></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var index = 0;
+    var imgWidth = 800;
+    var maxlen =
+      document.getElementById("img_ul").getElementsByTagName("li").length - 1;
+    var img_ul = document.getElementById("img_ul");
+    var buttonL = document.getElementById("left");
+    var buttonR = document.getElementById("right");
+    var autoPlay;
+
+    //切换到下一张图片
+    function next() {
+      img_ul.style.marginLeft = "-" + imgWidth * index + "px";
+      img_ul.style.transition = "0.3s";
+    }
+
+    //向右切换到最后一张图片后
+    function resetR() {
+      next();
+      setTimeout(function () {
+        img_ul.style.marginLeft = "0px";
+        img_ul.style.transition = "0s";
+        index = 0;
+      }, 300);
+    }
+    //向左切换到第一张图片后
+    function resetL() {
+      index = 5;
+      img_ul.style.transition = "0s";
+      img_ul.style.marginLeft = "-" + imgWidth * index + "px";
+      index--;
+      setTimeout(function () {
+        img_ul.style.transition = "0.3s";
+        img_ul.style.marginLeft = "-" + imgWidth * index + "px";
+      }, 10);
+    }
+
+    //自动切换图片
+    function changeAuto() {
+      if (index < maxlen) {
+        index++;
+        next();
+      } else {
+        resetR();
+      }
+    }
+
+    //按钮点击切换,被点击时停止自动切换
+    buttonL.onclick = function () {
+      clearInterval(autoPlay);
+      autoPlay = null;
+      index--;
+      if (index == -1) {
+        resetL();
+      } else {
+        next();
+      }
+    };
+    buttonR.onclick = function () {
+      clearInterval(autoPlay);
+      autoPlay = null;
+      index++;
+      if (index == maxlen) {
+        resetR();
+      } else {
+        next();
+      }
+    };
+    //鼠标移出按钮时开始自动切换
+    buttonR.onmouseout = function () {
+      if (autoPlay == null) {
+        autoPlay = setInterval(changeAuto, 3000);
+      }
+    };
+    buttonL.onmouseout = function () {
+      if (autoPlay == null) {
+        autoPlay = setInterval(changeAuto, 3000);
+      }
+    };
+    autoPlay = setInterval(changeAuto, 3000);
+  </script>
+</html>
