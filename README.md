@@ -1,1 +1,1 @@
-1. [轮播图](https://lobfly.github.io/JsDemo/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E8%BD%AE%E6%92%AD%E5%9B%BE.html)
+1. [轮播图](https://lobfly.github.io/JsDemo-personal/%E8%BD%AE%E6%92%AD%E5%9B%BE/%E8%BD%AE%E6%92%AD%E5%9B%BE.html)
