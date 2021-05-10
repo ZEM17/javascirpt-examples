@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 20px;
+      }
+      input {
+        font-size: 20px;
+      }
+      .btn {
+        margin: 20px;
+        font-size: 20px;
+      }
+      .result {
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" />
+      <button class="btn">转换为后缀表达式</button>
+      <div class="result"></div>
+    </div>
+  </body>
+  <script>
+    var inStack = {
+      "#": 0,
+      "(": 1,
+      "﹁": 8,
+      "∧": 6,
+      "∨": 4,
+      ")": 10,
+    };
+    var outStack = {
+      "#": 0,
+      "(": 10,
+      "﹁": 9,
+      "∧": 7,
+      "∨": 5,
+      ")": 1,
+    };
+    var btn = document.getElementsByClassName("btn")[0];
+    function transfer(testString) {
+      var stack = [];
+      stack.push("#");
+      console.log(testString);
+      var outputString = "";
+      for (var i = 0; i < testString.length; i++) {
+        if (
+          testString[i] != "(" &&
+          testString[i] != "﹁" &&
+          testString[i] != "∨" &&
+          testString[i] != "∧" &&
+          testString[i] != ")"
+        ) {
+          outputString += testString[i];
+        } else if (testString[i] == ")") {
+          while (stack[stack.length - 1] != "(") {
+            outputString += stack.pop();
+          }
+          stack.pop();
+        } else {
+          while (outStack[testString[i]] <= inStack[stack[stack.length - 1]]) {
+            outputString += stack.pop();
+          }
+          stack.push(testString[i]);
+        }
+      }
+      while (stack.length > 1) {
+        outputString += stack.pop();
+      }
+      console.log(outputString);
+      return outputString;
+    }
+
+    btn.onclick = function () {
+      var string = document.getElementsByTagName("input")[0].value;
+      var result = document.getElementsByClassName("result")[0];
+      result.innerHTML = transfer(string);
+    };
+  </script>
+</html>
