@@ -1,0 +1,76 @@
+body {
+    background-color: #f0f0f4;
+  }
+  .container {
+    height: 700px;
+    /* width: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    /* border:1px solid black; */
+  }
+  .calctor {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 674px;
+    width: 404px;
+    border: 2px solid rgb(134, 132, 132);
+    border-radius: 10px;
+  }
+  .display {
+    box-sizing: border-box;
+    border: 0px;
+    height: 170px;
+    width: 500px;
+    padding: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+    /* border: 1px solid red; */
+    border-bottom: 2px solid rgb(134, 132, 132);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+  .button {
+    /* background-color: blue; */
+    box-sizing: border-box;
+    height: 100px;
+    width: 100px;
+    border: 1px solid rgb(228, 222, 222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 30px;
+    /* 禁止选中文字 */
+    -moz-user-select: none; /*火狐*/
+
+    -webkit-user-select: none; /*webkit浏览器*/
+
+    -ms-user-select: none; /*IE10*/
+
+    -khtml-user-select: none; /*早期浏览器*/
+
+    user-select: none;
+  }
+  .button:hover {
+    background-color: rgb(238, 231, 231);
+    cursor: pointer;
+  }
+  #﹁,
+  #∧,
+  #∨,
+  #→,
+  #eq {
+    color: #db5a6b;
+  }
+  #calc,
+  #clear,
+  #delete {
+    color: #9c5333;
+  }
