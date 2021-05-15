@@ -2,7 +2,8 @@ body {
     background-color: #f0f0f4;
   }
   .container {
-    height: 700px;
+    position: relative;
+    height: 800px;
     /* width: 200px; */
     display: flex;
     justify-content: center;
@@ -73,4 +74,45 @@ body {
   #clear,
   #delete {
     color: #9c5333;
+  }
+  .more{
+    visibility:hidden;
+    position: absolute;
+    left: 120px;
+    top: 235px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    height: 504px;
+    width: 404px;
+    display: flex;
+    border: 2px solid rgb(134, 132, 132);
+    border-radius: 10px;
+  }
+  .moreBtn{
+    box-sizing: border-box;
+    height: 100px;
+    width: 100px;
+    border: 1px solid rgb(228, 222, 222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 30px;
+    /* 禁止选中文字 */
+    -moz-user-select: none; /*火狐*/
+
+    -webkit-user-select: none; /*webkit浏览器*/
+
+    -ms-user-select: none; /*IE10*/
+
+    -khtml-user-select: none; /*早期浏览器*/
+
+    user-select: none;
+  }
+  .moreBtn:hover{
+    background-color: rgb(238, 231, 231);
+    cursor: pointer;
+  }
+  #hide{
+    width: 300px;
   }
