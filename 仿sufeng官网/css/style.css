@@ -1,0 +1,339 @@
+/* *{
+    padding: 0px;
+} */
+body {
+  margin: 0px;
+}
+.nav {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(255, 209, 51);
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+}
+.nav_color {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(255, 209, 51);
+}
+.nav ul {
+  display: flex;
+  align-items: center;
+  /* align-items依据自身高度判断，而不是父级元素 */
+  flex-direction: row;
+  margin: 0;
+  margin-left: 50%;
+  /* margin-right: 10%; */
+  height: 100px;
+}
+.nav ul li {
+  color: white;
+  list-style: none;
+  font-size: 20px;
+  margin: 0 10px;
+}
+.nav ul li:first-child {
+  position: relative;
+  left: -560px;
+  font-weight: 600;
+  font-size: 56px;
+}
+.nav ul li:first-child::before {
+  content: "";
+  background-image: url(../img/logo.png);
+  background-size: contain;
+  position: absolute;
+  left: -50%;
+  top: 12px;
+  /* display: inline-block; */
+  width: 60px;
+  height: 60px;
+  /* border:1px solid red; */
+}
+.content {
+  height: 2000px;
+}
+.banner {
+  width: 100%;
+  height: 900px;
+  /* margin-top: 100px; */
+  /* border: 1px solid red; */
+  background-image: url("../img/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position-y: -50px; */
+}
+.banner_title {
+  color: white;
+  font-size: 60px;
+  font-weight: 600;
+  padding-top: 180px;
+  padding-left: 184px;
+  padding-bottom: 64px;
+}
+.banner_title span {
+  color: rgb(255, 209, 51);
+}
+.banner_text {
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+  padding-left: 184px;
+  width: 936px;
+}
+.after_banner {
+  display: flex;
+  justify-content: space-between;
+  height: 300px;
+  /* border:1px solid red; */
+}
+.after_banner div {
+  /* height: 300px; */
+  /* display: inline-block; */
+  /* border:1px solid red; */
+  /* width: 33.3%; */
+  background-color: rgb(255, 209, 51);
+  text-align: center;
+  color: white;
+  padding-top: 8px;
+  /* padding-top: 60px; */
+  /* border: 1px solid red; */
+}
+.after_banner > div:nth-child(2) {
+  background-color: white;
+  color: black;
+}
+.after_banner > div:nth-child(2) div {
+  background-color: white;
+  color: black;
+}
+.after_banner_content {
+  height: 180px;
+  width: 500px;
+  /* border: 1px solid red; */
+  /* background-color: #000; */
+}
+.after_banner_content img {
+  width: 150px;
+  height: 150px;
+  margin: 6px;
+}
+.after_banner_content p {
+  font-weight: 600;
+  padding: 2px;
+}
+
+.history {
+  background-color: rgb(247, 247, 247);
+  height: 800px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  padding-top: 60px;
+  position: relative;
+}
+.history h1 {
+  text-align: center;
+}
+#carousel {
+  position: absolute;
+  margin-left: 180px;
+  /* margin: auto; */
+  /* overflow: hidden; */
+  top: 200px;
+  display: inline-block;
+}
+#carousel_uls {
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+#carousel_img_ul {
+  list-style: none;
+  height: 300px;
+  width: 2000px;
+  left: 0px;
+  top: 0px;
+  padding: 0px;
+}
+#carousel_img_ul li {
+  float: left;
+  width: 400px;
+  height: 300px;
+}
+#carousel_img_ul li img {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+}
+#carousel_buttons {
+  position: absolute;
+  height: 30px;
+  width: 400px;
+  /* border:1px solid red; */
+  top: 50%;
+  display: flex;
+  z-index: 1;
+}
+
+#carousel_buttons div:nth-child(1) {
+  transform: rotate(180deg);
+}
+#carousel_buttons div:nth-child(2) {
+  margin-left: 340px;
+}
+#carousel_buttons img {
+  width: 30px;
+  height: 30px;
+}
+
+#carousel_buttons div:hover {
+  background-color: rgba(88, 87, 86, 0.2);
+  cursor: pointer;
+}
+
+.history_record {
+  text-align: left;
+  display: flexbox;
+  margin-left: 780px;
+  margin-top: 80px;
+  font-size: 20px;
+  color: rgb(255, 209, 51);
+  /* border: 1px solid red; */
+}
+.li_span {
+  margin-left: 40px;
+  font-size: 14px;
+  /* border: 1px solid red; */
+  color: rgb(109, 109, 109);
+}
+.li_time {
+  display: inline-block;
+  margin-left: 20px;
+  height: 40px;
+  /* border: 1px solid red; */
+}
+.li_dot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  /* border: 1px solid red; */
+  background-color: rgb(255, 209, 51);
+  border: 1px solid rgb(255, 209, 51);
+  border-radius: 50%;
+  transition: 0.5s ease;
+}
+.li_dot_active {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  /* border: 1px solid red; */
+  background-color: white;
+  border: 1px solid rgb(255, 209, 51);
+  border-radius: 50%;
+  transition: 0.5s ease;
+}
+
+.howtosay {
+  height: 700px;
+  background-color: rgb(247, 247, 247);
+  position: relative;
+  margin-top: 50px;
+}
+.howtosay h1 {
+  text-align: center;
+  margin: 0;
+  padding: 80px;
+}
+.gradient_carousel {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  /* overflow: hidden; */
+}
+.gradient_text {
+  list-style: none;
+  padding-top: 180px;
+  height: 600px;
+  width: 1100px;
+  /* border: 2px solid rgb(255, 209, 51); */
+  padding: 0px;
+  padding-top: 200px;
+  
+  /* margin-left: -1000px; */
+}
+.gradient_text li {
+  position: absolute;
+  height: 500px;
+  width: 1100px;
+  text-align: center;
+  /* border: 1px solid red; */
+  font-size: 18px;
+  opacity: 0;
+  transition: 1s ease;
+}
+.gradient_text li:nth-child(1) {
+  opacity: 1;
+}
+.curdots {
+  list-style: none;
+  position: absolute;
+  top: 400px;
+  /* left: 408px; */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0px;
+}
+.curdots li {
+  float: left;
+  border: 2px solid rgb(255, 209, 51);
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  margin: 6px;
+  cursor: pointer;
+  transition: 1s ease;
+}
+.curdots li:nth-child(1) {
+  background-color: rgb(255, 209, 51);
+}
+.gradient_text > li > div {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid rgb(255, 209, 51);
+  left: 50%;
+  top: -180px;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.gradient_text > li:nth-child(1) > div{
+    background-image: url("../img/users1.jpg");
+    background-size: cover;
+}
+.gradient_text > li:nth-child(2) > div{
+    background-image: url("../img/users2.jpg");
+    background-size: cover;
+   
+}
+.gradient_text > li:nth-child(3) > div{
+    background-image: url("../img/users3.jpg");
+    background-size: cover;
+    
+}
+.gradient_text > li:nth-child(4) > div{
+    background-image: url("../img/users4.jpg");
+    background-size: cover;
+}
+.gradient_text > li:nth-child(5) > div{
+    background-image: url("../img/users5.jpg");
+    background-size: cover;
+}
+.gradient_text li span{
+    color: rgb(255, 209, 51);
+    font-size: 50px;
+    font-family: Arial;
+    font-weight: bolder;
+}
