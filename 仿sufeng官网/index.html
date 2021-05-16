@@ -11,11 +11,11 @@
     <div class="nav" id="nav">
       <ul id="nav_ul">
         <li>宿蜂</li>
-        <li>主页</li>
+        <li id="nav_home">主页</li>
         <li>使用场景</li>
         <li>关于我们</li>
-        <li>发展历程</li>
-        <li>加入我们</li>
+        <li id="nav_history">发展历程</li>
+        <li id="nav_joinus">加入我们</li>
       </ul>
     </div>
     <!-- 防止nav固定定位脱离文档流后留白 -->
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <div class="history">
+    <div class="history" id="history">
       <h1>发展历程</h1>
       <div id="carousel">
         <div id="carousel_uls">
@@ -148,13 +148,6 @@
             >
           </li>
         </ul>
-        <!-- <ul class="gradient_pic">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul> -->
         <ul class="curdots">
           <li class="curdots_li"></li>
           <li class="curdots_li"></li>
@@ -164,9 +157,20 @@
         </ul>
       </div>
     </div>
-
-    <div class="content"></div>
+    <div class="joinus" id="joinus">
+      <h1>加入我们</h1>
+      <div class="joinus_flexbox">
+        <div id="yanfa" class="joinusdiv"><img src="./img/arrow.png" alt=""><h3>技术研发</h3><span>APP、小程序、前后端、服务器 擅长什么方向都可以</span></div>
+        <div id="renzhen" class="joinusdiv"><img src="./img/arrow.png" alt=""><h3>成为认证用户</h3><span>乐于分享自己的时间，以有偿助人为乐 需要有责任心的你</span></div>
+        <div id="chuna" class="joinusdiv"><img src="./img/arrow.png" alt=""><h3>会计出纳</h3><span>熟悉第三方平台，自律是基本保障 需要细心细心再细心的你</span></div>
+        <div id="jinli" class="joinusdiv"><img src="./img/arrow.png" alt=""><h3>产品经理</h3><span>对用户需求敏锐 对产品设计有把握，擅长沟通的你 擅长沟通的你</span></div>
+        <div id="joinus_blank" class="joinusdiv"></div>
+        <div id="tongchou" class="joinusdiv"><img src="./img/arrow.png" alt=""><h3>校区统筹</h3><span>服务于校园认证用户 解决供求之间的矛盾 需要善于解决矛盾的你</span></div>
+      </div>
+     
+    </div>
   </body>
+  <script src="./js/nav.js"></script>
   <script src="./js/scroll.js"></script>
   <script src="./js/carousel.js"></script>
   <script src="./js/animition.js"></script>

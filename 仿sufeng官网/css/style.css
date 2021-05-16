@@ -33,6 +33,7 @@ body {
   list-style: none;
   font-size: 20px;
   margin: 0 10px;
+  cursor: pointer;
 }
 .nav ul li:first-child {
   position: relative;
@@ -51,9 +52,6 @@ body {
   width: 60px;
   height: 60px;
   /* border:1px solid red; */
-}
-.content {
-  height: 2000px;
 }
 .banner {
   width: 100%;
@@ -239,7 +237,6 @@ body {
   height: 700px;
   background-color: rgb(247, 247, 247);
   position: relative;
-  margin-top: 50px;
 }
 .howtosay h1 {
   text-align: center;
@@ -336,4 +333,31 @@ body {
     font-size: 50px;
     font-family: Arial;
     font-weight: bolder;
+}
+.joinus{
+  height: 550px;
+  background-color: rgb(247, 247, 247);
+}
+.joinus h1{
+  text-align: center;
+  margin: 0;
+}
+.joinus_flexbox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 250px;
+  text-align: center;
+  margin-top: 30px;
+}
+.joinusdiv{
+  width: 400px;
+  height: 220px;
+}
+.joinusdiv span{
+  color: rgb(137, 151, 167);
+}
+.joinus img{
+  height: 60px;
+  width: 60px;
 }

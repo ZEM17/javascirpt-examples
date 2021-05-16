@@ -1,0 +1,9 @@
+document.getElementById("nav_home").onclick=function(){
+    window.location.href="index.html";
+}
+document.getElementById("nav_history").onclick=function(){
+    window.location.href="#history";
+}
+document.getElementById("nav_joinus").onclick=function(){
+    window.location.href="#joinus";
+}
