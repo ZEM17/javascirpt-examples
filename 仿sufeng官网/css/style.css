@@ -305,28 +305,7 @@ body {
   top: -180px;
   transform: translateX(-50%);
   position: absolute;
-}
-.gradient_text > li:nth-child(1) > div{
-    background-image: url("../img/users1.jpg");
-    background-size: cover;
-}
-.gradient_text > li:nth-child(2) > div{
-    background-image: url("../img/users2.jpg");
-    background-size: cover;
-   
-}
-.gradient_text > li:nth-child(3) > div{
-    background-image: url("../img/users3.jpg");
-    background-size: cover;
-    
-}
-.gradient_text > li:nth-child(4) > div{
-    background-image: url("../img/users4.jpg");
-    background-size: cover;
-}
-.gradient_text > li:nth-child(5) > div{
-    background-image: url("../img/users5.jpg");
-    background-size: cover;
+  background-size: cover;
 }
 .gradient_text li span{
     color: rgb(255, 209, 51);
