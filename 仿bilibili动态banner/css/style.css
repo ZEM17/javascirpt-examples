@@ -19,7 +19,7 @@ body{
     transform: translateX(-50px);
 } */
 video{
-    /* object-fit: cover; */
+    object-fit: cover;
     transform: translateX(36px) translateY(-4.5px);
     
     /* transform: translateY(-4.5px);    */

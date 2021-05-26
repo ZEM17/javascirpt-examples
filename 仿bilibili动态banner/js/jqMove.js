@@ -11,12 +11,12 @@ $(document).ready(function(){
 
     $("#videoBox").mousemove(function(e){
         CURRENT_X=e.pageX;
-        offset=(CURRENT_X-ENTER_X)/21;
+        offset=(CURRENT_X-ENTER_X)/50;
         $("#videoBox").css('transform',`translateX(${offset}px)`)
     })
     
     $("#videoBox").mouseleave(function(e){
-        $("#videoBox").css("transition","0.3s");
+        $("#videoBox").css("transition","0.4s");
         $("#videoBox").css('transform',"");
     })
 })
