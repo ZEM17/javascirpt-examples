@@ -1,0 +1,26 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.banner{
+    height: 156px;
+    /* width: 150px; */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#videoBox{
+    height: 156px;
+    /* transition: 0.3s; */
+    /* transform: translateX(-50px); */
+}
+/* #videoBox:hover{
+    transform: translateX(-50px);
+} */
+video{
+    /* object-fit: cover; */
+    transform: translateX(36px) translateY(-4.5px);
+    
+    /* transform: translateY(-4.5px);    */
+}
