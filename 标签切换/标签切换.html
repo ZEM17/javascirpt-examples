@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        height: 20px;
+        width: 50px;
+        margin: 5px;
+        background-color: white;
+      }
+      .buttonClick {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button></button>
+    <button></button>
+    <button></button>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+  </body>
+  <script>
+    var btn = document.getElementsByTagName("button");
+    for(var i = 0;i < btn.length;i++) {
+        (function(i){                                       //立即执行函数防止闭包
+            btn[i].onclick = function(){
+                for(var j = 0;j < btn.length;j++) {
+                    btn[j].className = '';
+                }
+                btn[i].className = 'buttonClick';
+            }
+
+        }(i))
+    }
+    // for (var i = 0; i < btn.length; i++) {
+    //   btn[i].onclick = function () {
+    //     for (var j = 0; j < btn.length; j++) {
+    //       btn[j].className = "";
+    //     }
+    //     this.className = "buttonClick";                //用this
+    //   };
+    // }
+  </script>
+</html>
