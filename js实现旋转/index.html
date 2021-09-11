@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+      }
+      body {
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    function rotateAnimation(div) {
+      let deg = 0;
+      function rotation(div) {
+        setInterval(() => {
+          deg = degCompute(deg);
+          div.style.transform = "rotate(" + deg + "deg)";
+        }, 10);
+      }
+      function degCompute(deg) {
+        if (deg <= 360) {
+          return deg + 1;
+        } else {
+          return 0;
+        }
+      }
+      rotation(div);
+    }
+    let div = document.getElementsByTagName("div")[0];
+    rotateAnimation(div)
+  </script>
+</html>
