@@ -1,0 +1,38 @@
+#menu {
+    display: flex;
+    height: 600px;
+    width: 600px;
+    flex-wrap: wrap;
+    border: 1px red solid;
+    
+}
+#menu > * {
+    height: 200px;
+    width: 200px;
+    border: 1px red solid;
+    box-sizing: border-box;
+    /* box-sizing设置出现的问题 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    cursor: pointer;
+}
+#display {
+    height: 600px;
+    width: 400px;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#container {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.focus {
+    background-color: red;
+}
+
