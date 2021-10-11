@@ -1,0 +1,37 @@
+:root{
+    --itemWidth:300;
+    --col:3;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    position: relative;
+    width: calc(var(--itemWidth)*var(--col)*1px);
+}
+.item{
+    width: calc(var(--itemWidth)*1px);
+    position: absolute;
+    border-radius: 10px;
+}
+.item1{
+    background-color: red;
+    height: 200px;
+}
+.item2{
+    background-color: blue;
+    height: 510px;
+}
+.item3{
+    background-color: green;
+    height: 300px;
+}
+.item4{
+    background-color: gray;
+    height: 450px;
+}
+.item5{
+    background-color: rosybrown;
+    height: 280px;
+}
