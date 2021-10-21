@@ -13,60 +13,48 @@
       #container {
         position: relative;
         margin: auto;
-        width: 800px;
-        height: 400px;
+        width: 520px;
+        height: 280px;
       }
       #uls {
-        width: 800px;
-        height: 400px;
+        width: 520px;
+        height: 280px;
         overflow: hidden;
       }
       #img_ul {
         list-style: none;
-        height: 400px;
+        height: 100%;
         left: 0;
         top: 0;
-        width: 4800px;
+        width: 1040px;
       }
       #img_ul li {
         float: left;
-        width: 800px;
-        height: 400px;
+        width: 520px;
+        height: 100%;
       }
       #img_ul li img {
         width: 100%;
         height: 100%;
       }
-      #buttons {
+      #btns {
+        z-index: 999;
         position: absolute;
-        top: 50%;
-        font-size: 40px;
+        left: 50%;
+        top: 90%;
+        display: flex;
+        transform: translateX(-50%);
+        list-style-type: none;
       }
-      #buttons div {
-        height: 60px;
-        width: 60px;
-        float: left;
-        transform: translateY(-50%);
-        position: absolute;
-      }
-      #buttons div img {
-        height: 60px;
-        width: 60px;
-      }
-      #buttons div img:hover {
-        background-color: rgba(88, 87, 86, 0.2);
+      #btns li {
+        padding: 4px;
+        margin: 0 4px 0 4px;
+        border: 2px solid rgb(245, 235, 235);
+        border-radius: 50%;
         cursor: pointer;
       }
-      #left img {
-        transform: rotate(180deg);
-      }
-      #left {
-        position: relative;
-        left: -60px;
-      }
-      #right {
-        position: relative;
-        left: 800px;
+      .active {
+        background-color: red;
       }
     </style>
   </head>
@@ -74,100 +62,75 @@
     <div id="container">
       <div id="uls">
         <ul id="img_ul">
-          <li><img src="img/1.jpg" /></li>
-          <li><img src="img/2.jpg" /></li>
-          <li><img src="img/3.jpg" /></li>
-          <li><img src="img/4.jpg" /></li>
-          <li><img src="img/5.jpg" /></li>
-          <li><img src="img/1.jpg" /></li>
+          <li><img src="img/1.jpg" id="current" /></li>
+          <li><img src="" id="next" /></li>
         </ul>
-        <ul id="litCir_ul"></ul>
       </div>
-      <div id="buttons">
-        <div id="left"><img src="img/箭头.png" /></div>
-        <div id="right"><img src="img/箭头.png" /></div>
-      </div>
+      <ul id="btns">
+        <li class="active" id="0"></li>
+        <li id="1"></li>
+        <li id="2"></li>
+        <li id="3"></li>
+        <li id="4"></li>
+      </ul>
     </div>
   </body>
   <script>
+    var imgs = [
+      "img/1.jpg",
+      "img/2.jpg",
+      "img/3.jpg",
+      "img/4.jpg",
+      "img/5.jpg",
+    ];
     var index = 0;
-    var imgWidth = 800;
-    var maxlen =
-      document.getElementById("img_ul").getElementsByTagName("li").length - 1;
-    var img_ul = document.getElementById("img_ul");
-    var buttonL = document.getElementById("left");
-    var buttonR = document.getElementById("right");
+    var imgWidth = 520;
     var autoPlay;
-
+    var currentImg = document.querySelector("#current");
+    var nextImg = document.querySelector("#next");
+    var lis = document.querySelectorAll("#btns li");
+    var imgUl = document.querySelector("#img_ul");
     //切换到下一张图片
-    function next() {
-      img_ul.style.marginLeft = "-" + imgWidth * index + "px";
-      img_ul.style.transition = "0.3s";
-    }
-
-    //向右切换到最后一张图片后
-    function resetR() {
-      next();
+    function next(index) {
+      nextImg.src = imgs[index];
+      imgUl.style.transition = "0.3s";
+      imgUl.style.marginLeft = "-" + imgWidth + "px";
       setTimeout(function () {
-        img_ul.style.marginLeft = "0px";
-        img_ul.style.transition = "0s";
-        index = 0;
+        currentImg.src = imgs[index];
+        imgUl.style.transition = "0s";
+        imgUl.style.marginLeft = "0px";
       }, 300);
-    }
-    //向左切换到第一张图片后
-    function resetL() {
-      index = 5;
-      img_ul.style.transition = "0s";
-      img_ul.style.marginLeft = "-" + imgWidth * index + "px";
-      index--;
-      setTimeout(function () {
-        img_ul.style.transition = "0.3s";
-        img_ul.style.marginLeft = "-" + imgWidth * index + "px";
-      }, 10);
+      lis.forEach((item) => {
+        item.classList.remove("active");
+      });
+      lis[index].classList.add("active");
     }
 
     //自动切换图片
     function changeAuto() {
-      if (index < maxlen) {
+      if (index < imgs.length - 1) {
         index++;
-        next();
       } else {
-        resetR();
+        index = 0;
       }
+      next(index);
     }
 
-    //按钮点击切换,被点击时停止自动切换
-    buttonL.onclick = function () {
+    //按钮点击切换图片,点击时清除之前的定时器停止自动播放，切换完成后再添加新的定时器
+    function lisClick(e) {
       clearInterval(autoPlay);
-      autoPlay = null;
-      index--;
-      if (index == -1) {
-        resetL();
-      } else {
-        next();
-      }
-    };
-    buttonR.onclick = function () {
-      clearInterval(autoPlay);
-      autoPlay = null;
-      index++;
-      if (index == maxlen) {
-        resetR();
-      } else {
-        next();
-      }
-    };
-    //鼠标移出按钮时开始自动切换
-    buttonR.onmouseout = function () {
-      if (autoPlay == null) {
+      index = e.target.id;
+      console.log(index);
+      next(index);
+      setTimeout(function () {
         autoPlay = setInterval(changeAuto, 3000);
-      }
-    };
-    buttonL.onmouseout = function () {
-      if (autoPlay == null) {
-        autoPlay = setInterval(changeAuto, 3000);
-      }
-    };
+      }, 300);
+    }
+    //添加监听事件
+    for (let i = 0; i < lis.length; i++) {
+      lis[i].addEventListener("click", lisClick);
+    }
+    //添加定时器
     autoPlay = setInterval(changeAuto, 3000);
   </script>
 </html>
